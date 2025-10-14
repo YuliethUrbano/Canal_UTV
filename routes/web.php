@@ -17,4 +17,33 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// ==================== RUTAS PROTEGIDAS POR ROLES ====================
+
+// Solo administradores
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin/panel', function () {
+        return "🔐 PANEL DE ADMINISTRADOR - Solo visible para administradores";
+    })->name('admin.panel');
+    
+    Route::get('/admin/usuarios', function () {
+        return "👥 GESTIÓN DE USUARIOS - Solo administradores";
+    })->name('admin.usuarios');
+});
+
+// Administradores y periodistas
+Route::middleware(['auth', 'journalist'])->group(function () {
+    Route::get('/noticias/crear', function () {
+        return "📝 CREAR NOTICIA - Visible para administradores y periodistas";
+    })->name('noticias.crear');
+    
+    Route::get('/mis-noticias', function () {
+        return "📰 MIS NOTICIAS - Panel del periodista";
+    })->name('noticias.mis-noticias');
+});
+
+// Ruta pública de ejemplo para visitantes
+Route::get('/noticias', function () {
+    return "📰 NOTICIAS PÚBLICAS - Todos los visitantes pueden ver";
+})->name('noticias.publicas');
+
 require __DIR__.'/auth.php';
