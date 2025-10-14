@@ -4,8 +4,9 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    $categorias = \App\Models\Categoria::orderBy('orden')->get();
+    return view('inicio', compact('categorias'));
+})->name('inicio');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
