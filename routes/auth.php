@@ -11,7 +11,6 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
-    // SOLO ELIMINAMOS LAS RUTAS DE REGISTRO
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
         ->name('login');
 
