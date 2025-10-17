@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NoticiaController;
 
 Route::get('/', function () {
     $categorias = \App\Models\Categoria::orderBy('orden')->get();
@@ -31,15 +32,15 @@ Route::middleware(['auth', 'admin'])->group(function () {
     })->name('admin.usuarios');
 });
 
-// Administradores y periodistas
+// Administradores y periodistas - GESTIÓN DE NOTICIAS (UN SOLO GRUPO)
 Route::middleware(['auth', 'journalist'])->group(function () {
-    Route::get('/noticias/crear', function () {
-        return "📝 CREAR NOTICIA - Visible para administradores y periodistas";
-    })->name('noticias.crear');
-    
-    Route::get('/mis-noticias', function () {
-        return "📰 MIS NOTICIAS - Panel del periodista";
-    })->name('noticias.mis-noticias');
+    // Rutas del controlador de noticias
+    Route::get('/noticias/crear', [NoticiaController::class, 'create'])->name('noticias.create');
+    Route::post('/noticias', [NoticiaController::class, 'store'])->name('noticias.store');
+    Route::get('/mis-noticias', [NoticiaController::class, 'index'])->name('noticias.mis-noticias');
+    Route::get('/noticias/{noticia}/editar', [NoticiaController::class, 'edit'])->name('noticias.edit');
+    Route::put('/noticias/{noticia}', [NoticiaController::class, 'update'])->name('noticias.update');
+    Route::delete('/noticias/{noticia}', [NoticiaController::class, 'destroy'])->name('noticias.destroy');
 });
 
 // Ruta pública de ejemplo para visitantes

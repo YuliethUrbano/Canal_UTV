@@ -32,7 +32,7 @@
                             <div class="mb-8 p-4 border-l-4 border-purple-500 bg-purple-50">
                                 <h3 class="text-xl font-semibold mb-3 text-purple-800">📰 Gestión de Noticias</h3>
                                 <div class="space-y-2">
-                                    <a href="{{ route('noticias.crear') }}" class="block bg-purple-500 hover:bg-purple-600 text-white px-4 py-3 rounded-lg transition duration-200">
+                                    <a href="{{ route('noticias.create') }}" class="block bg-purple-500 hover:bg-purple-600 text-white px-4 py-3 rounded-lg transition duration-200">
                                         ✏️ Crear Nueva Noticia
                                     </a>
                                     <a href="{{ route('noticias.mis-noticias') }}" class="block bg-orange-500 hover:bg-orange-600 text-white px-4 py-3 rounded-lg transition duration-200">
