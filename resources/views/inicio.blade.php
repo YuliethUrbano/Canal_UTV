@@ -25,7 +25,7 @@
 
     <!-- Noticias Recientes -->
     <main class="container mx-auto p-6">
-        <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">📰 Noticias Recientes</h2>
+        <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Noticias Recientes</h2>
         
         @if($noticias->count() > 0)
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

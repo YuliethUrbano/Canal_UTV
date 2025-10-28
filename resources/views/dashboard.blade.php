@@ -20,7 +20,7 @@
                                     <a href="{{ route('admin.panel') }}" class="block bg-blue-500 hover:bg-blue-600 text-white px-4 py-3 rounded-lg transition duration-200">
                                         📊 Panel de Control Admin
                                     </a>
-                                    <a href="{{ route('admin.usuarios') }}" class="block bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-lg transition duration-200">
+                                    <a href="{{ route('admin.gestion-usuarios') }}" class="block bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-lg transition duration-200">
                                         👥 Gestionar Usuarios
                                     </a>
                                 </div>
