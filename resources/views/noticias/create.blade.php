@@ -202,7 +202,6 @@
 
     <!-- Script para el editor de texto -->
     <script>
-        // Función para actualizar el textarea oculto con el contenido del editor
         function updateTextarea() {
             const editor = document.getElementById('editorArea');
             const textarea = document.getElementById('cuerpo');
